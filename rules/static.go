@@ -250,10 +250,10 @@ func (r *DefaultRuleRenderer) StaticFilterForwardChains() []*Chain {
 	// Ideally, we'd limit these rules to the interfaces that we're managing so that we
 	// co-exist better with the user's other rules. However, to do that we'd have to push
 	// them down into the per-endpoint chains, which would increase per-packet overhead.
-	rules = append(rules, Rule{
-		Match:  Match().ConntrackState("INVALID"),
-		Action: DropAction{},
-	})
+	//rules = append(rules, Rule{
+		//Match:  Match().ConntrackState("INVALID"),
+		//Action: DropAction{},
+	//})
 	rules = append(rules, Rule{
 		Match:  Match().ConntrackState("RELATED,ESTABLISHED"),
 		Action: AcceptAction{},
